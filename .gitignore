@@ -4,3 +4,4 @@ messages.json
 session.session
 session.session-journal
 __pycache__/config.cpython-311.pyc
+__pycache__/classes.cpython-311.pyc
