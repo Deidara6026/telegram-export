@@ -64,18 +64,18 @@ class Spyder():
         except Exception as e:  # Handling any exceptions that may occur
             logging.error(e.__repr__())  # Logging the exception
     
-    async def crawl(self):
-        x = []
-        try:
-            for i in range(config.spiders_per_phone):
-                chat = self.crawl_list.pop()
-                x.append(self._dump_all_messages(chat))
-            await asyncio.gather(*x)
-        except IndexError as e:
-            if len(x) == 0:
-                print("Operation complete")
-            else:
-                await asyncio.gather(*x)
+    # async def crawl(self):
+    #     x = []
+    #     try:
+    #         for i in range(config.spiders_per_phone):
+    #             chat = self.crawl_list.pop()
+    #             x.append(self._dump_all_messages(chat))
+    #         await asyncio.gather(*x)
+    #     except IndexError as e:
+    #         if len(x) == 0:
+    #             print("Operation complete")
+    #         else:
+    #             await asyncio.gather(*x)
                 
 
 
