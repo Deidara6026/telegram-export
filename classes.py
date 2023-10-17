@@ -55,8 +55,7 @@ class Spyder():
                     _message.update({"reply_to_message":"None"})  # Updating the message dictionary with 'None' if an AttributeError occurs
                     pass
 
-                print("\033c", end="")  # Clearing the console
-                print(len(all_messages))  # Printing the number of messages
+                print(f"{self.name} - {chat_name} - {len(all_messages)}")  # Printing the number of messages
                 all_messages.append(_message)  # Appending the message dictionary to the list of all messages
 
 
@@ -68,7 +67,7 @@ class Spyder():
     async def crawl(self):
         x = []
         try:
-            for i in config.spiders_per_phone:
+            for i in range(config.spiders_per_phone):
                 chat = self.crawl_list.pop()
                 x.append(self._dump_all_messages(chat))
             await asyncio.gather(*x)
