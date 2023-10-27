@@ -14,6 +14,7 @@ async def main():
             web.append(c)
         x = []
         while Spyder.crawl_list:
+            x.clear()
             for i in range(config.spiders_per_phone):
                 for spyder in web:
                     if Spyder.crawl_list:  # Check if the list is not empty

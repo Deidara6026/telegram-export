@@ -11,7 +11,7 @@ logging.basicConfig(filename="export.log",  # Setting up the basic configuration
                     format='%(asctime)s,%(msecs)d %(name)s %(levelname)s %(message)s',
                     datefmt='%H:%M:%S',
                     level=logging.WARNING)
-
+allowed_chars = "qazwsxedcrfvtgbyhnujmikolp1234567890QAZSXEDCRFVTGBYHNUJMIKLP"
 
 class Spyder():
     crawl_list = []
@@ -57,10 +57,12 @@ class Spyder():
 
                 print(f"{self.name} - {chat_name} - {len(all_messages)}")  # Printing the number of messages
                 all_messages.append(_message)  # Appending the message dictionary to the list of all messages
-
-
-            with open(chat_name.replace("https://t.me/", "").strip("+")+'-messages.json', 'w') as f:  # Opening a file to write the messages to
+            
+            chat_name_ = chat_name.replace("https", "").replace("t.me", "")
+            x = "".join([char for char in chat_name_ if char in allowed_chars])
+            with open(str(x)+'.json', 'w') as f:  # Opening a file to write the messages to
                 json.dump(all_messages, f)  # Dumping the list of all messages to the file
+        
         except Exception as e:  # Handling any exceptions that may occur
             logging.error(e.__repr__())  # Logging the exception
     
