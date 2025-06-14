@@ -1,0 +1,1 @@
+Export your telegram chats(text only i think, havent checked in a while) via a takeout. feel free to use, modify or wtv. Its old code, so use at your own risk yada yada. the code isnt too complicated, so if you know what youre doing, you can modify it to fit your needs easily
